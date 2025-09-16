@@ -10,6 +10,7 @@ Includes a **Login Page** and **Profile Setup Page** with smooth animations, col
 - Lightweight, no backend required  
 
 ## 🚀 Run Locally
+demo link :  https://hiteshi-1.github.io/audiora_prototype/
 1. Clone/download this repo  
 2. Open `index.html` in your browser  
 3. Log in → set up your profile → enjoy the vibe 🎧  

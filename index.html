@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Audiora prototype</title>
+<meta http-equiv="refresh" content="3; URL='login.html'" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .container {
+    animation: fadeIn 1.5s ease forwards, bounce 2s ease infinite;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  p {
+    font-size: 16px;
+    color: #ccc;
+  }
+
+  a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.9s ease;
+  }
+
+  a:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px);}
+    100% { opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-15px);}
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1);}
+    50% { transform: scale(1.05);}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Redirecting you to Login… 🎶</h1>
+    <p>If you are not redirected automatically, <a href="login.html">click here to Login</a>.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Profile Setup - Audiora</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 400px;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.7);
+  box-shadow: 0 0 20px #1DB954;
+  animation: fadeIn 1.2s ease forwards, floatUp 2s ease-in-out infinite alternate;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease;
+}
+
+.logo:hover { transform: rotate(-10deg) scale(1.1); }
+
+h2 {
+  margin-bottom: 20px;
+  color: #1DB954;
+  animation: pulse 2s infinite;
+}
+
+input, button {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+input:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #1DB954;
+  outline: none;
+}
+
+button {
+  background: linear-gradient(45deg, #1DB954, #00ff87);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff87;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 10px auto;
+  object-fit: cover;
+  border: 3px solid #1DB954;
+  transition: transform 0.5s ease;
+}
+
+.profile-pic:hover { transform: scale(1.1) rotate(5deg); }
+
+.welcome-message {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(26,26,26,0.9);
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  box-shadow: 0 0 15px #1DB954;
+}
+
+/* Floating musical notes */
+.note {
+  position: absolute;
+  font-size: 24px;
+  animation: float 6s linear infinite;
+  pointer-events: none;
+  color: #1DB954;
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeIn { 0% {opacity:0;} 100% {opacity:1;} }
+@keyframes floatUp { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity:1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity:0; } }
+
+</style>
+</head>
+<body>
+
+<!-- Floating musical notes -->
+<div class="note" style="left:10%;">🎵</div>
+<div class="note" style="left:25%;">🎶</div>
+<div class="note" style="left:40%;">🎵</div>
+<div class="note" style="left:55%;">🎶</div>
+<div class="note" style="left:70%;">🎵</div>
+<div class="note" style="left:85%;">🎶</div>
+
+<div class="container">
+  <img src="logo.png" alt="Audiora Logo" class="logo" />
+  <h2>Set Up Your Profile</h2>
+
+  <!-- Profile Picture -->
+  <img src="" id="profilePreview" class="profile-pic" alt="Profile Picture" />
+  <input type="file" id="uploadPic" accept="image/*" />
+
+  <!-- Username -->
+  <input type="text" placeholder="Enter your username" id="username" />
+
+  <!-- Button -->
+  <button id="saveBtn">Save & Continue</button>
+
+  <!-- Welcome Message -->
+  <div class="welcome-message">
+    🎶 <strong>Welcome to Audiora!</strong> 🎶<br><br>
+    We're thrilled to have you here. Whether you're looking to discover new tunes that match your mood, explore your favorite genres, or simply relax to some music, Audiora is here to make your musical journey unforgettable. Let us know how you're feeling, and we'll curate the perfect playlist just for you.<br><br>
+    <em>Let the music begin!</em>
+  </div>
+</div>
+
+<script>
+  // Profile picture preview
+  document.getElementById("uploadPic").addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      document.getElementById("profilePreview").src = URL.createObjectURL(file);
+    }
+  });
+
+  // Save and continue
+  document.getElementById("saveBtn").addEventListener("click", function () {
+    const username = document.getElementById("username").value.trim();
+
+    if (username) {
+      alert("Profile saved! Welcome, " + username + "!");
+      window.location.href = "assistantPage.html";  
+    } else {
+      alert("Please enter a username.");
+    }
+  });
+
+  // Randomize floating notes speed and delay
+  document.querySelectorAll('.note').forEach(note=>{
+    note.style.animationDuration = (4 + Math.random()*4)+'s';
+    note.style.animationDelay = Math.random()*5+'s';
+  });
+</script>
+</body>
+</html>
